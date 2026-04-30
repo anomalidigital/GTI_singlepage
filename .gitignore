@@ -1,0 +1,35 @@
+# ===================================
+# GTI Website - .gitignore
+# ===================================
+
+# System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Development screenshots & temp files
+screencapture-*.png
+
+# Unused root-level files (duplicates / drafts)
+LOGO_GTI_SUBS3.png
+image.png
+/benner_GTI.png
+
+# Unused banner images (only benner_GTI.png is used)
+assets/benner/1-1-1536x1024.jpg
+assets/benner/1-1536x1024.jpg
+assets/benner/1-3-1536x1024.jpg
+assets/benner/1-4-1536x1024.jpg
+assets/benner/2-1-1536x1024.jpg
+assets/benner/Booster-2-TBA-Pumps-1650-x-1100-1536x1024.jpg
+assets/benner/Common-Size-TBA-Pumps-1650-x-1100-1536x1024.jpg
+
+# Unused image files
+assets/images/about-us.png
+assets/images/logo-gti.png
