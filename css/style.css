@@ -1088,3 +1088,39 @@ html {
     max-width: 100%;
   }
 }
+
+/* ==========================================================================
+   Distributor Trust Bar
+   ========================================================================== */
+.distributor-grid {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.distributor-card {
+  flex: 1;
+  min-width: 200px;
+  max-width: 300px;
+  height: 100px;
+  padding: 1.5rem 2.5rem;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.distributor-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.distributor-card img {
+  max-height: 45px;
+  max-width: 100%;
+  width: auto;
+  object-fit: contain;
+}
