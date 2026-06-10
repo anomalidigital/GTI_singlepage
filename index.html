@@ -27,7 +27,7 @@
   <header class="header">
     <div class="container nav-container">
       <a href="#home" class="logo-wrapper">
-        <img src="assets/images/GTI_FA.png" alt="GTI Logo">
+        <img src="assets/images/logo_GTI_New.png" alt="GTI Logo">
       </a>
 
       <nav class="nav-menu">
@@ -130,13 +130,31 @@
     </section>
 
     <!-- Wave Divider: Tentang Kami → Peran Kami -->
-  <div style="width: 100%; line-height: 0; background: linear-gradient(to bottom, #FFFFFF 0%, #FFFFFF 40%, #E8F0F8 60%, #E8F0F8 100%);">
-    <img src="assets/images/wave-branding.png" alt="" style="width: 100%; display: block; height: auto;">
+  <div class="wave-divider wave-divider-bottom" style="background: #FFFFFF;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <path fill="#1E5AA8" fill-opacity="0.03" d="M0,32 C240,74 480,21 720,53 C960,85 1200,43 1440,32 L1440,120 L0,120 Z"></path>
+      <path fill="#3B82C4" fill-opacity="0.05" d="M0,53 C240,96 480,43 720,74 C960,106 1200,64 1440,53 L1440,120 L0,120 Z"></path>
+      <path fill="#E8F0F8" fill-opacity="1" d="M0,74 C240,117 480,64 720,96 C960,128 1200,85 1440,74 L1440,120 L0,120 Z"></path>
+    </svg>
   </div>
 
   <!-- Strategic Role -->
-  <section class="section" style="background-color: #E8F0F8; padding-top: 2rem;">
-      <div class="container fade-in">
+  <section class="section roles-section" style="background: linear-gradient(180deg, #E8F0F8 0%, #DCE8F4 100%); position: relative; overflow: hidden; padding-top: 2rem;">
+      <!-- Subtle Wave Accents in Background -->
+      <div class="bg-water-waves">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="position: absolute; bottom: 0; left: 0; width: 100%; height: auto; pointer-events: none; opacity: 0.35; z-index: 0;">
+          <path fill="url(#water-grad)" fill-opacity="0.3" d="M0,160 C320,224 640,96 960,160 C1280,224 1380,192 1440,160 L1440,320 L0,320 Z"></path>
+          <path fill="url(#water-grad)" fill-opacity="0.2" d="M0,224 C240,288 480,160 720,224 C960,288 1200,160 1440,224 L1440,320 L0,320 Z"></path>
+          <defs>
+            <linearGradient id="water-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#3B82C4" />
+              <stop offset="100%" stop-color="#1E5AA8" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <div class="container fade-in" style="position: relative; z-index: 1;">
         <div class="text-center" style="max-width: 800px; margin: 0 auto 3rem;">
           <h2 class="text-primary" data-lang-id="Peran Kami" data-lang-en="Our Role">Peran Kami</h2>
           <p data-lang-id="Kami mengelola aspek-aspek utama yang dibutuhkan untuk menjamin representasi pasar yang kredibel di Indonesia:"
@@ -146,27 +164,27 @@
 
         <div class="role-grid">
           <div class="role-card fade-in delay-1">
-            <div class="card-icon"><i class="fa-solid fa-file-signature fa-lg"></i></div>
+            <div class="card-icon"><i class="fa-solid fa-file-signature"></i></div>
             <h4 data-lang-id="Lisensi Merek Dagang" data-lang-en="Trademark Licensing">Lisensi Merek Dagang</h4>
             <p data-lang-id="Mengamankan dan mengelola lisensi merek dagang eksklusif"
               data-lang-en="Securing and managing exclusive trademark licenses">Mengamankan dan mengelola lisensi merek
               dagang eksklusif</p>
           </div>
           <div class="role-card fade-in delay-2">
-            <div class="card-icon"><i class="fa-solid fa-scale-balanced fa-lg"></i></div>
+            <div class="card-icon"><i class="fa-solid fa-scale-balanced"></i></div>
             <h4 data-lang-id="Kepatuhan Regulasi" data-lang-en="Regulatory Compliance">Kepatuhan Regulasi</h4>
             <p data-lang-id="Memastikan kepatuhan regulasi dan penyelarasan sertifikasi"
               data-lang-en="Ensuring regulatory compliance and certification">Memastikan kepatuhan regulasi dan
               penyelarasan sertifikasi</p>
           </div>
           <div class="role-card fade-in delay-3">
-            <div class="card-icon"><i class="fa-solid fa-circle-check fa-lg"></i></div>
+            <div class="card-icon"><i class="fa-solid fa-circle-check"></i></div>
             <h4 data-lang-id="Keaslian Merek" data-lang-en="Brand Authenticity">Keaslian Merek</h4>
             <p data-lang-id="Menjaga keaslian serta reputasi merek"
               data-lang-en="Safeguarding brand authenticity and reputation">Menjaga keaslian serta reputasi merek</p>
           </div>
           <div class="role-card fade-in delay-4">
-            <div class="card-icon"><i class="fa-solid fa-truck-fast fa-lg"></i></div>
+            <div class="card-icon"><i class="fa-solid fa-truck-fast"></i></div>
             <h4 data-lang-id="Distribusi Resmi" data-lang-en="Official Distribution">Distribusi Resmi</h4>
             <p data-lang-id="Mendukung distribusi produk resmi melalui PT Benteng Mas Perkasa"
               data-lang-en="Supporting official product distribution through PT Benteng Mas Perkasa">Mendukung
@@ -507,7 +525,7 @@
     <div class="container">
       <div class="footer-top fade-in">
         <div class="footer-info">
-          <img src="assets/images/GTI_FA_white.png" alt="GTI Logo" class="footer-logo">
+          <img src="assets/images/logo_GTI_New_white.png" alt="GTI Logo" class="footer-logo">
           <p class="footer-desc"
             data-lang-id="PT Gemilang Tirta Internusa berspesialisasi dalam sistem pompa air industri dan solusi teknologi air distribusi premium di Indonesia. Produk dijamin asli, andal, dan didukung penuh."
             data-lang-en="PT Gemilang Tirta Internusa specializes in water pump systems, industrial pumps, and advanced water technology distribution in Indonesia, ensuring every product is authentic and fully supported.">
