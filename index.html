@@ -41,7 +41,7 @@
         <!-- Language Switcher -->
         <div class="lang-dropdown">
           <button class="lang-btn">
-            <i class="fa-solid fa-globe" style="font-size: 1.1em; color: currentColor;"></i>
+            <i class="fa-solid fa-globe"></i>
             <span id="current-lang">ID</span>
           </button>
           <div class="lang-menu">
@@ -51,7 +51,7 @@
         </div>
 
         <button class="mobile-toggle">
-          <i class="fa-solid fa-bars" style="font-size: 1.5em; color: currentColor;"></i>
+          <i class="fa-solid fa-bars"></i>
         </button>
       </div>
     </div>
@@ -71,7 +71,7 @@
             data-lang-en="Exclusive licensing gateway for world-class water solutions in Indonesia, backed by decades of industry experience and a trusted nationwide distribution network.">
             Pemegang lisensi eksklusif pusat teknologi air kelas dunia di Indonesia, berbekal pengalaman industri
             beberapa dekade dengan jaringan distribusi nasional yang luas.</p>
-          <div class="hero-cta" style="justify-content: flex-start;">
+          <div class="hero-cta hero-cta--start">
             <a href="https://wa.me/6287765836677" class="btn btn-primary" target="_blank" rel="noopener noreferrer"
               data-lang-id="Jadilah Mitra Kami" data-lang-en="Become Our Partner">Jadilah Mitra Kami</a>
           </div>
@@ -81,21 +81,20 @@
   </section>
 
   <!-- Trust Bar -->
-  <section class="section"
-    style="padding: 2rem 0; border-bottom: 1px solid #E2E8F0; background-color: var(--color-white);">
+  <section class="section trust-bar">
     <div class="container text-center fade-in">
-      <p style="font-weight: 500; color: var(--color-text-light); margin-bottom: 1.5rem;"
+      <p class="trust-bar-text"
         data-lang-id="Dipercaya produsen global, didukung oleh jaringan distribusi nasional yang terbukti."
         data-lang-en="Trusted by global manufacturers, supported by a proven nationwide distribution network.">Dipercaya
         produsen global, didukung oleh jaringan distribusi nasional yang terbukti.</p>
       <div class="distributor-grid">
-        <div class="distributor-card" style="background-color: #FFFFFF; border: 1px solid #E2E8F0;">
+        <div class="distributor-card">
           <img src="assets/Logo distributor/grundfos.png" alt="Grundfos">
         </div>
-        <div class="distributor-card" style="background-color: #FFFFFF; border: 1px solid #E2E8F0;">
+        <div class="distributor-card">
           <img src="assets/Logo distributor/emaux.png" alt="Emaux Water Technology">
         </div>
-        <div class="distributor-card" style="background-color: #FFFFFF; border: 1px solid #E2E8F0;">
+        <div class="distributor-card">
           <img src="assets/Logo distributor/pool-bright.png" alt="PoolBright">
         </div>
       </div>
@@ -110,7 +109,7 @@
       <div class="container fade-in">
         <div class="grid-2">
           <div>
-            <h2 class="text-primary" style="margin-bottom: 1.5rem;" data-lang-id="Tentang Kami" data-lang-en="About Us">
+            <h2 class="text-primary about-title" data-lang-id="Tentang Kami" data-lang-en="About Us">
               Tentang Kami</h2>
             <p data-lang-id="PT Gemilang Tirta Internusa adalah entitas lisensi resmi untuk merek teknologi air internasional premium yang didistribusikan di Indonesia."
               data-lang-en="PT Gemilang Tirta Internusa is the official licensing entity for premium international water technology brands distributed in Indonesia.">
@@ -122,15 +121,14 @@
               standar kelas dunia pada setiap produk yang dikirim ke pasar.</p>
           </div>
           <div>
-            <img src="https://placehold.co/600x400/png" alt="About GTI"
-              style="width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
+            <img src="https://placehold.co/600x400/png" alt="About GTI" class="about-image">
           </div>
         </div>
       </div>
     </section>
 
     <!-- Wave Divider: Tentang Kami → Peran Kami -->
-  <div class="wave-divider wave-divider-bottom" style="background: #FFFFFF;">
+  <div class="wave-divider wave-divider-bottom wave-divider--white">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none">
       <path fill="#1E5AA8" fill-opacity="0.03" d="M0,32 C240,74 480,21 720,53 C960,85 1200,43 1440,32 L1440,120 L0,120 Z"></path>
       <path fill="#3B82C4" fill-opacity="0.05" d="M0,53 C240,96 480,43 720,74 C960,106 1200,64 1440,53 L1440,120 L0,120 Z"></path>
@@ -139,10 +137,10 @@
   </div>
 
   <!-- Strategic Role -->
-  <section class="section roles-section" style="background: linear-gradient(180deg, #E8F0F8 0%, #DCE8F4 100%); position: relative; overflow: hidden; padding-top: 2rem;">
+  <section class="section roles-section">
       <!-- Subtle Wave Accents in Background -->
       <div class="bg-water-waves">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="position: absolute; bottom: 0; left: 0; width: 100%; height: auto; pointer-events: none; opacity: 0.35; z-index: 0;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="bg-water-waves-svg">
           <path fill="url(#water-grad)" fill-opacity="0.3" d="M0,160 C320,224 640,96 960,160 C1280,224 1380,192 1440,160 L1440,320 L0,320 Z"></path>
           <path fill="url(#water-grad)" fill-opacity="0.2" d="M0,224 C240,288 480,160 720,224 C960,288 1200,160 1440,224 L1440,320 L0,320 Z"></path>
           <defs>
@@ -154,8 +152,8 @@
         </svg>
       </div>
 
-      <div class="container fade-in" style="position: relative; z-index: 1;">
-        <div class="text-center" style="max-width: 800px; margin: 0 auto 3rem;">
+      <div class="container fade-in roles-content">
+        <div class="text-center section-header">
           <h2 class="text-primary" data-lang-id="Peran Kami" data-lang-en="Our Role">Peran Kami</h2>
           <p data-lang-id="Kami mengelola aspek-aspek utama yang dibutuhkan untuk menjamin representasi pasar yang kredibel di Indonesia:"
             data-lang-en="We manage the key elements required for a proper market presence in Indonesia:">Kami mengelola
@@ -192,7 +190,7 @@
           </div>
         </div>
 
-        <p class="text-center" style="margin-top: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;"
+        <p class="text-center roles-summary"
           data-lang-id="Melalui peran ini, kami memberikan rasa percaya diri bagi prinsipal global maupun pelanggan lokal - menjamin bahwa setiap produk adalah asli, tersertifikasi, dan didukung oleh bantuan teknis serta garansi yang memadai."
           data-lang-en="Through this role, we provide confidence to both global principals and local customers - ensuring that every product is genuine, certified, and backed by proper technical and warranty support.">
           Melalui peran ini, kami memberikan rasa percaya diri bagi prinsipal global maupun pelanggan lokal - menjamin
@@ -205,11 +203,11 @@
 
   <div id="why-us">
     <!-- 5 Advantages -->
-    <section class="section" style="padding-top: 3rem;">
+    <section class="section section--compact">
       <div class="container fade-in">
         <h2 class="section-title" data-lang-id="Mengapa Memilih Kami" data-lang-en="Why Work With Us">Mengapa Memilih
           Kami</h2>
-        <p class="text-center" style="max-width: 700px; margin: -1rem auto 2.5rem;"
+        <p class="text-center section-subtitle"
           data-lang-id="Lima alasan utama yang menjadikan kami mitra strategis terbaik untuk merek Anda di Indonesia."
           data-lang-en="Five key reasons that make us the best strategic partner for your brand in Indonesia.">Lima
           alasan utama yang menjadikan kami mitra strategis terbaik untuk merek Anda di Indonesia.</p>
@@ -288,15 +286,15 @@
   </div>
 
   <!-- Divider: Mengapa → Cara Kerja -->
-  <div style="width: 100%;">
-    <hr style="border: none; border-top: 1px solid #E2E8F0; margin: 0;">
+  <div class="section-divider">
+    <hr>
   </div>
 
   <!-- Ecosystem Flow -->
   <section class="section">
     <div class="container fade-in">
       <h2 class="section-title" data-lang-id="Cara Kerja Kami" data-lang-en="How It Works">Cara Kerja Kami</h2>
-      <p class="text-center" style="max-width: 700px; margin: -1rem auto 3rem;"
+      <p class="text-center section-subtitle section-subtitle--wide"
         data-lang-id="Satu sistem yang terhubung—mulai dari otorisasi hingga penggunaan di pasar."
         data-lang-en="A single, connected system—from authorization to market use.">Satu sistem yang terhubung mulai
         dari otorisasi hingga penggunaan di pasar.</p>
@@ -339,51 +337,49 @@
     <div class="container fade-in">
       <h2 class="section-title" data-lang-id="Visi & Misi Kami" data-lang-en="Our Vision & Mission">Visi & Misi Kami
       </h2>
-      <p class="text-center" style="max-width: 700px; margin: -1rem auto 3rem;"
+      <p class="text-center section-subtitle section-subtitle--wide"
         data-lang-id="Landasan dan arah yang membimbing setiap langkah kami."
         data-lang-en="The foundation and direction that guides every step we take.">Landasan dan arah yang membimbing
         setiap langkah kami.</p>
 
-      <div class="grid-2" style="align-items: stretch; gap: 2rem;">
+      <div class="grid-2 grid-2--stretch">
         <!-- Visi Card -->
-        <div
-          style="background-color: var(--color-primary); color: var(--color-white); padding: 2.5rem; border-radius: var(--radius-lg); display: flex; flex-direction: column;">
-          <h3 class="text-white" style="margin-bottom: 1.5rem; font-size: 1.4rem;" data-lang-id="Visi Kami"
+        <div class="visi-card">
+          <h3 class="text-white visi-card-title" data-lang-id="Visi Kami"
             data-lang-en="Our Vision">Visi Kami</h3>
-          <p style="font-size: 1.1rem; font-weight: 400; color: rgba(255,255,255,0.9); margin-bottom: 0; line-height: 1.7; flex: 1;"
+          <p class="visi-card-text"
             data-lang-id="Menjadi mitra terpercaya bagi merek teknologi air global dalam membangun keberadaan mereka di Indonesia."
             data-lang-en="To be a trusted partner for global water technology brands establishing presence in Indonesia.">
             Menjadi mitra terpercaya bagi merek teknologi air global dalam membangun keberadaan mereka di Indonesia.</p>
         </div>
         <!-- Misi Card -->
-        <div
-          style="background-color: var(--color-primary); color: var(--color-white); padding: 2.5rem; border-radius: var(--radius-lg); display: flex; flex-direction: column;">
-          <h3 class="text-white" style="margin-bottom: 1.5rem; font-size: 1.4rem;" data-lang-id="Misi Kami"
+        <div class="visi-card">
+          <h3 class="text-white visi-card-title" data-lang-id="Misi Kami"
             data-lang-en="Our Mission">Misi Kami</h3>
-          <ul style="list-style: none; padding: 0; margin: 0; flex: 1;">
-            <li style="display: flex; gap: 0.75rem; margin-bottom: 1rem; align-items: flex-start;">
-              <span style="color: rgba(255,255,255,0.5); flex-shrink: 0; font-weight: 600;">01</span>
-              <span style="color: rgba(255,255,255,0.9);"
+          <ul class="misi-list">
+            <li class="misi-list-item">
+              <span class="misi-number">01</span>
+              <span class="misi-text"
                 data-lang-id="Menjamin proses masuknya merek yang patuh hukum dan terstruktur."
                 data-lang-en="Ensure compliant and structured brand entry.">Menjamin proses masuknya merek yang patuh
                 hukum dan terstruktur.</span>
             </li>
-            <li style="display: flex; gap: 0.75rem; margin-bottom: 1rem; align-items: flex-start;">
-              <span style="color: rgba(255,255,255,0.5); flex-shrink: 0; font-weight: 600;">02</span>
-              <span style="color: rgba(255,255,255,0.9);" data-lang-id="Menjaga standar kualitas dan keaslian produk."
+            <li class="misi-list-item">
+              <span class="misi-number">02</span>
+              <span class="misi-text" data-lang-id="Menjaga standar kualitas dan keaslian produk."
                 data-lang-en="Maintain product authenticity and quality standards.">Menjaga standar kualitas dan
                 keaslian produk.</span>
             </li>
-            <li style="display: flex; gap: 0.75rem; margin-bottom: 1rem; align-items: flex-start;">
-              <span style="color: rgba(255,255,255,0.5); flex-shrink: 0; font-weight: 600;">03</span>
-              <span style="color: rgba(255,255,255,0.9);"
+            <li class="misi-list-item">
+              <span class="misi-number">03</span>
+              <span class="misi-text"
                 data-lang-id="Mewujudkan penghubung yang efektif antara pasokan global dan kebutuhan pasar lokal."
                 data-lang-en="Enable effective connection between global supply and local demand.">Mewujudkan penghubung
                 yang efektif antara pasokan global dan kebutuhan pasar lokal.</span>
             </li>
-            <li style="display: flex; gap: 0.75rem; align-items: flex-start;">
-              <span style="color: rgba(255,255,255,0.5); flex-shrink: 0; font-weight: 600;">04</span>
-              <span style="color: rgba(255,255,255,0.9);"
+            <li class="misi-list-item">
+              <span class="misi-number">04</span>
+              <span class="misi-text"
                 data-lang-id="Mendukung pertumbuhan industri dalam jangka panjang."
                 data-lang-en="Support long-term industry growth.">Mendukung pertumbuhan industri dalam jangka
                 panjang.</span>
@@ -396,23 +392,23 @@
 
   <!-- Ending CTA -->
   <section class="section text-center fade-in">
-    <div class="container" style="max-width: 800px;">
-      <p style="font-size: 1.125rem; color: var(--color-text); margin-bottom: 2rem;"
+    <div class="container container--narrow">
+      <p class="cta-lead"
         data-lang-id="Indonesia terus mengalami peningkatan permintaan akan solusi air yang efisien dan dapat diandalkan. Kami fokus untuk memperluas kemitraan dan memperkuat peran kami dalam menghadirkan teknologi yang tepat ke pasar Indonesia."
         data-lang-en="Indonesia continues to see rising demand for efficient and reliable water solutions. We are focused on expanding our partnerships and strengthening our role in bringing the right technologies into the market.">
         Indonesia terus mengalami peningkatan permintaan akan solusi air yang efisien dan dapat diandalkan. Kami fokus
         untuk memperluas kemitraan dan memperkuat peran kami dalam menghadirkan teknologi yang tepat ke pasar Indonesia.
       </p>
 
-      <h2 class="text-primary" style="margin-bottom: 1rem;"
+      <h2 class="text-primary cta-heading"
         data-lang-id="Bangun Eksistensi Anda di Indonesia Bersama Kami"
         data-lang-en="Build Your Presence in Indonesia with Confidence">Bangun Eksistensi Anda di Indonesia Bersama Kami
       </h2>
-      <p style="margin-bottom: 2.5rem; color: var(--color-text); font-size: 1.125rem;"
+      <p class="cta-description"
         data-lang-id="Kami menyediakan struktur, akses, dan dukungan yang Anda butuhkan untuk melangkah maju dengan visi yang jelas."
         data-lang-en="We provide the structure, access, and support needed to move forward with clarity.">Kami
         menyediakan struktur, akses, dan dukungan yang Anda butuhkan untuk melangkah maju dengan visi yang jelas.</p>
-      <div class="hero-cta" style="justify-content: center; display: flex; gap: 1rem;">
+      <div class="hero-cta">
         <a href="https://wa.me/6287765836677" class="btn btn-primary" target="_blank" rel="noopener noreferrer"
           data-lang-id="Jadilah Mitra Kami" data-lang-en="Become Our Partner">Jadilah Mitra Kami</a>
       </div>
@@ -437,9 +433,9 @@
                 <i class="fa-solid fa-location-dot fa-lg"></i>
               </div>
               <div>
-                <h4 style="margin-bottom: 0.25rem; color: var(--color-white);" data-lang-id="Alamat Kantor"
+                <h4 class="contact-detail-title" data-lang-id="Alamat Kantor"
                   data-lang-en="Office Address">Alamat Kantor</h4>
-                <p style="color: rgba(255,255,255,0.8); margin-bottom: 0;">Jl. Danau Indah Raya Blok C-3/10<br>Sunter,
+                <p class="contact-detail-text">Jl. Danau Indah Raya Blok C-3/10<br>Sunter,
                   Jakarta Utara 14360<br>DKI Jakarta, Indonesia</p>
               </div>
             </div>
@@ -449,9 +445,9 @@
                 <i class="fa-solid fa-phone fa-lg"></i>
               </div>
               <div>
-                <h4 style="margin-bottom: 0.25rem; color: var(--color-white);" data-lang-id="Telepon / WhatsApp"
+                <h4 class="contact-detail-title" data-lang-id="Telepon / WhatsApp"
                   data-lang-en="Phone / WhatsApp">Telepon / WhatsApp</h4>
-                <p style="color: rgba(255,255,255,0.8); margin-bottom: 0;">+62 (21) 6583 6677<br>+62 877 6583 6677 (WA)
+                <p class="contact-detail-text">+62 (21) 6583 6677<br>+62 877 6583 6677 (WA)
                 </p>
               </div>
             </div>
@@ -461,17 +457,17 @@
                 <i class="fa-solid fa-envelope fa-lg"></i>
               </div>
               <div>
-                <h4 style="margin-bottom: 0.25rem; color: var(--color-white);" data-lang-id="Email"
+                <h4 class="contact-detail-title" data-lang-id="Email"
                   data-lang-en="Email">Email</h4>
-                <p style="color: rgba(255,255,255,0.8); margin-bottom: 0;">info@gemilangtirta.com</p>
+                <p class="contact-detail-text">info@gemilangtirta.com</p>
               </div>
             </div>
           </div>
 
           <div class="contact-form-panel">
-            <h2 class="text-primary" style="margin-bottom: 0.5rem;" data-lang-id="Jadilah Mitra Kami"
+            <h2 class="text-primary contact-form-title" data-lang-id="Jadilah Mitra Kami"
               data-lang-en="Become Our Partner">Jadilah Mitra Kami</h2>
-            <p style="margin-bottom: 2rem;"
+            <p class="contact-form-desc"
               data-lang-id="Tinggalkan pesan Anda dengan mendetail. Mengirimkan pesan dapat langsung dijawab dalam jam kerja operasional bisnis."
               data-lang-en="Leave a detailed message. Sending a message will be answered during business operational hours.">
               Tinggalkan pesan Anda dengan mendetail. Mengirimkan pesan dapat langsung dijawab dalam jam kerja
@@ -510,7 +506,7 @@
                   placeholder="Jelaskan kebutuhan kerjasama atau dukungan"></textarea>
               </div>
 
-              <button type="submit" class="btn btn-primary" style="width: 100%;" data-lang-id="Kirim Permintaan"
+              <button type="submit" class="btn btn-primary btn--full" data-lang-id="Kirim Permintaan"
                 data-lang-en="Send Request">Kirim Permintaan</button>
             </form>
           </div>
@@ -546,21 +542,21 @@
           <h4 data-lang-id="Hubungi Kami" data-lang-en="Contact">Hubungi Kami</h4>
           <ul>
             <!-- Updated from PDF -->
-            <li style="display: flex; gap: 12px; align-items: flex-start; margin-bottom: 12px;">
-              <i class="fa-solid fa-location-dot" style="margin-top: 5px; color: var(--color-white);"></i>
-              <div style="line-height: 1.5;">Jl. Danau Indah Raya Blok C-3/10<br>Sunter, Jakarta Utara 14360<br>DKI
+            <li class="footer-contact-item">
+              <i class="fa-solid fa-location-dot footer-contact-icon footer-contact-icon--top"></i>
+              <div class="footer-contact-address">Jl. Danau Indah Raya Blok C-3/10<br>Sunter, Jakarta Utara 14360<br>DKI
                 Jakarta, Indonesia</div>
             </li>
-            <li style="display: flex; gap: 12px; align-items: center; margin-bottom: 12px;">
-              <i class="fa-solid fa-phone" style="color: var(--color-white);"></i>
+            <li class="footer-contact-item footer-contact-item--center">
+              <i class="fa-solid fa-phone footer-contact-icon"></i>
               <span>+62 (21) 6583 6677</span>
             </li>
-            <li style="display: flex; gap: 12px; align-items: center; margin-bottom: 12px;">
-              <i class="fa-brands fa-whatsapp" style="color: var(--color-white);"></i>
+            <li class="footer-contact-item footer-contact-item--center">
+              <i class="fa-brands fa-whatsapp footer-contact-icon"></i>
               <span>+62 877 6583 6677</span>
             </li>
-            <li style="display: flex; gap: 12px; align-items: center;">
-              <i class="fa-solid fa-envelope" style="color: var(--color-white);"></i>
+            <li class="footer-contact-item footer-contact-item--center">
+              <i class="fa-solid fa-envelope footer-contact-icon"></i>
               <span>info@gemilangtirta.com</span>
             </li>
           </ul>
