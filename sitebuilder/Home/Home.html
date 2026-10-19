@@ -1,0 +1,304 @@
+<!-- ==========================================================================
+     Home GTI - desain 2026
+     Motif: siluet gerbang (arch) yang geometris dan tenang - sesuai arahan
+     audit brand (bukan ombak berlapis, supaya tidak menyerupai BMP).
+     Semua teks dari Home.js (this.t), pasangan Indonesia/English.
+     ========================================================================== -->
+
+<!-- Hero -->
+<section class="gti-hero" id="home" aria-labelledby="gti-hero-judul">
+  <svg class="gti-hero__lengkung" viewBox="0 0 880 720" aria-hidden="true" focusable="false">
+    <path d="M200 720V480a240 240 0 0 1 480 0v240" />
+    <path d="M110 720V480a330 330 0 0 1 660 0v240" />
+    <path d="M20 720V480a420 420 0 0 1 840 0v240" />
+  </svg>
+  <div class="container gti-hero__grid">
+    <div class="gti-hero__teks">
+      <h1 class="gti-hero__judul" id="gti-hero-judul">{{ t.heroJudul }}</h1>
+      <p class="gti-hero__sub">{{ t.heroSub }}</p>
+      <div class="gti-aksi">
+        <a href="/#roles" class="btn gti-btn gti-btn--putih" (click)="keSection($event, 'roles')">{{ t.heroCta }}</a>
+        <a href="/#contact" class="btn gti-btn gti-btn--garis-putih" (click)="keSection($event, 'contact')">{{
+          t.heroCta2 }}</a>
+      </div>
+    </div>
+    <figure class="gti-hero__gerbang">
+      <div class="gti-hero__foto">
+        <img [src]="aset + 'gti-hero-engagement.webp'" [alt]="t.heroFotoAlt" width="1000" height="1500" />
+      </div>
+      <img class="gti-hero__sisip" [src]="aset + 'gti-pump-inset.webp'" [alt]="t.heroSisipAlt" width="640"
+        height="640" />
+    </figure>
+  </div>
+</section>
+
+<!-- Merek global -->
+<section class="gti-merek" id="brands" aria-labelledby="gti-merek-judul">
+  <div class="container gti-merek__grid">
+    <div>
+      <p class="gti-label">{{ t.merekLabel }}</p>
+      <h2 class="gti-merek__judul" id="gti-merek-judul">{{ t.merekJudul }}</h2>
+    </div>
+    <ul class="gti-merek__logo">
+      <li *ngFor="let item of distributor">
+        <img [src]="item.gambar" [alt]="item.nama" [attr.width]="item.lebar" [attr.height]="item.tinggi"
+          loading="lazy" />
+      </li>
+    </ul>
+    <p class="gti-merek__catatan">{{ t.merekCatatan }}</p>
+  </div>
+</section>
+
+<!-- Tentang GTI -->
+<section class="gti-sec gti-tentang" id="about" aria-labelledby="gti-tentang-judul">
+  <div class="container gti-tentang__grid">
+    <figure class="gti-tentang__foto">
+      <img [src]="aset + 'gti-building-facade.webp'" [alt]="t.tentangFotoAlt" width="1000" height="920"
+        loading="lazy" />
+    </figure>
+    <div class="gti-tentang__teks">
+      <p class="gti-label">{{ t.tentangLabel }}</p>
+      <h2 class="gti-judul" id="gti-tentang-judul">{{ t.tentangJudul }}</h2>
+      <p *ngFor="let paragraf of t.tentangIsi; trackBy: lacakIndex" class="gti-teks">{{ paragraf }}</p>
+      <dl class="gti-poin">
+        <div *ngFor="let item of t.tentangPoin; trackBy: lacakIndex" class="gti-poin__item">
+          <dt>{{ item.judul }}</dt>
+          <dd>{{ item.teks }}</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- Peran GTI: foto selebar sisi kiri layar, empat peran di kanan -->
+<section class="gti-peran" id="roles" aria-labelledby="gti-peran-judul">
+  <figure class="gti-peran__foto">
+    <img [src]="aset + 'gti-market-intro.webp'" [alt]="t.peranFotoAlt" width="800" height="1200" loading="lazy" />
+  </figure>
+  <div class="gti-peran__isi">
+    <p class="gti-label">{{ t.peranLabel }}</p>
+    <h2 class="gti-judul" id="gti-peran-judul">{{ t.peranJudul }}</h2>
+    <p class="gti-teks">{{ t.peranSub }}</p>
+    <ul class="gti-peran__daftar">
+      <li *ngFor="let item of t.peran; trackBy: lacakIndex" class="gti-peran__item">
+        <span class="gti-peran__ikon" aria-hidden="true"><i class="fa-solid" [ngClass]="item.ikon"></i></span>
+        <h3>{{ item.judul }}</h3>
+        <p>{{ item.teks }}</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- Ekosistem: alur dari prinsipal ke pasar; GTI = simpul utama (logo) -->
+<section class="gti-sec gti-eko" id="ecosystem" aria-labelledby="gti-eko-judul">
+  <div class="container">
+    <div class="gti-kepala">
+      <p class="gti-label">{{ t.ekoLabel }}</p>
+      <h2 class="gti-judul" id="gti-eko-judul">{{ t.ekoJudul }}</h2>
+      <p class="gti-teks">{{ t.ekoSub }}</p>
+    </div>
+    <ol class="gti-alur">
+      <li *ngFor="let item of t.eko; let i = index; trackBy: lacakIndex" class="gti-alur__tahap"
+        [class.gti-alur__tahap--gerbang]="i === 1">
+        <span class="gti-alur__simpul" aria-hidden="true">
+          <img *ngIf="i === 1" [src]="aset + 'gemilang-tirta-internusa-icon.webp'" alt="" width="384" height="384" />
+          <i *ngIf="i !== 1" class="fa-solid" [ngClass]="item.ikon"></i>
+        </span>
+        <span class="gti-alur__panah" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></span>
+        <div class="gti-alur__teks">
+          <span class="gti-alur__peran">{{ item.peran }}</span>
+          <h3 class="gti-alur__judul">{{ item.judul }}</h3>
+          <ul class="gti-alur__butir">
+            <li *ngFor="let butir of item.butir; trackBy: lacakIndex">{{ butir }}</li>
+          </ul>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- Dari merek global ke pasar lokal -->
+<section class="gti-sec gti-pasar" aria-labelledby="gti-pasar-judul">
+  <div class="container">
+    <div class="gti-kepala gti-kepala--sisi">
+      <div>
+        <p class="gti-label">{{ t.pasarLabel }}</p>
+        <h2 class="gti-judul" id="gti-pasar-judul">{{ t.pasarJudul }}</h2>
+      </div>
+      <p class="gti-teks">{{ t.pasarSub }}</p>
+    </div>
+    <div class="gti-pasar__grid">
+      <figure *ngFor="let item of t.pasar; trackBy: lacakIndex" class="gti-pasar__item">
+        <img [src]="aset + item.foto" [alt]="item.alt" width="800" height="1000" loading="lazy" />
+        <figcaption>
+          <h3>{{ item.judul }}</h3>
+          <p>{{ item.teks }}</p>
+        </figcaption>
+      </figure>
+    </div>
+    <ul class="gti-sektor">
+      <li *ngFor="let sektor of t.sektor; trackBy: lacakIndex">{{ sektor }}</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Mengapa GTI -->
+<section class="gti-sec gti-mengapa" id="why-us" aria-labelledby="gti-mengapa-judul">
+  <div class="container gti-mengapa__grid">
+    <div>
+      <p class="gti-label">{{ t.mengapaLabel }}</p>
+      <h2 class="gti-judul" id="gti-mengapa-judul">{{ t.mengapaJudul }}</h2>
+      <p class="gti-teks">{{ t.mengapaSub }}</p>
+      <dl class="gti-fakta">
+        <div *ngFor="let item of t.fakta; trackBy: lacakIndex">
+          <dt>{{ item.nilai }}</dt>
+          <dd>{{ item.teks }}</dd>
+        </div>
+      </dl>
+    </div>
+    <ul class="gti-alasan">
+      <li *ngFor="let item of t.alasan; trackBy: lacakIndex">
+        <h3>{{ item.judul }}</h3>
+        <p>{{ item.teks }}</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- Visi & nilai -->
+<section class="gti-sec gti-visi" aria-labelledby="gti-visi-label">
+  <div class="container">
+  <div class="gti-visi__grid">
+    <div>
+      <p class="gti-label" id="gti-visi-label">{{ t.visiLabel }}</p>
+      <blockquote class="gti-visi__kutip">
+        <p>{{ t.visiTeks }}</p>
+      </blockquote>
+    </div>
+    <div>
+      <p class="gti-label">{{ t.nilaiLabel }}</p>
+      <dl class="gti-nilai">
+        <div *ngFor="let item of t.nilai; trackBy: lacakIndex">
+          <dt>{{ item.judul }}</dt>
+          <dd>{{ item.teks }}</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- Ajakan bermitra -->
+<section class="gti-sec gti-kemitraan" aria-labelledby="gti-kemitraan-judul">
+  <svg class="gti-kemitraan__gerbang" viewBox="0 0 440 400" aria-hidden="true" focusable="false">
+    <path d="M140 400V250a80 80 0 0 1 160 0v150" />
+    <path d="M100 400V250a120 120 0 0 1 240 0v150" />
+    <path d="M60 400V250a160 160 0 0 1 320 0v150" />
+    <path d="M20 400V250a200 200 0 0 1 400 0v150" />
+  </svg>
+  <div class="container gti-kemitraan__grid">
+    <div>
+      <p class="gti-label">{{ t.kemitraanLabel }}</p>
+      <h2 class="gti-judul" id="gti-kemitraan-judul">{{ t.kemitraanJudul }}</h2>
+      <p class="gti-teks">{{ t.kemitraanTeks }}</p>
+    </div>
+    <div class="gti-aksi gti-kemitraan__aksi">
+      <a href="/#contact" class="btn gti-btn gti-btn--putih" (click)="keSection($event, 'contact')">{{
+        t.kemitraanCta }}</a>
+      <a [href]="kontak.whatsapp.href" target="_blank" rel="noopener noreferrer"
+        class="btn gti-btn gti-btn--garis-putih">{{ t.kemitraanCta2 }}</a>
+    </div>
+  </div>
+</section>
+
+<div id="contact">
+  <!-- Hubungi Kami (tidak diubah) -->
+  <section class="section section-bg-light">
+    <div class="container fade-in">
+      <div class="contact-wrapper">
+        <div class="contact-info-panel">
+          <h3>{{ t.infoKontakJudul }}</h3>
+          <p>{{ t.infoKontakTeks }}</p>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon">
+              <i class="fa-solid fa-location-dot fa-lg" aria-hidden="true"></i>
+            </div>
+            <div>
+              <h4 class="contact-detail-title">{{ t.alamatJudul }}</h4>
+              <p class="contact-detail-text" [innerHTML]="kontak.alamat"></p>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon">
+              <i class="fa-solid fa-phone fa-lg" aria-hidden="true"></i>
+            </div>
+            <div>
+              <h4 class="contact-detail-title">{{ t.teleponJudul }}</h4>
+              <p class="contact-detail-text">
+                <a [href]="kontak.telepon.href">{{ kontak.telepon.tampil }}</a><br />
+                <a [href]="kontak.whatsapp.href" target="_blank" rel="noopener noreferrer">{{ kontak.whatsapp.tampil }}
+                  (WA)</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon">
+              <i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i>
+            </div>
+            <div>
+              <h4 class="contact-detail-title">Email</h4>
+              <p class="contact-detail-text"><a [href]="kontak.email.href">{{ kontak.email.tampil }}</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-panel">
+          <h2 class="text-primary contact-form-title">{{ t.jadiMitra }}</h2>
+          <p class="contact-form-desc">{{ t.formDesc }}</p>
+
+          <!-- Pesan dirangkai lalu dikirim lewat WhatsApp (lihat kirimMitra di Home.js) -->
+          <form ngNativeValidate #formMitra="ngForm" (ngSubmit)="kirimMitra(formMitra)">
+            <div class="form-group">
+              <label class="form-label" for="mitra-nama">{{ t.form.nama }}</label>
+              <input type="text" id="mitra-nama" name="name" ngModel class="form-control" required maxlength="100"
+                autocomplete="name" [placeholder]="t.form.namaPh" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="mitra-email">{{ t.form.email }}</label>
+              <input type="email" id="mitra-email" name="email" ngModel class="form-control" required maxlength="150"
+                autocomplete="email" [placeholder]="t.form.emailPh" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="mitra-perusahaan">{{ t.form.perusahaan }}</label>
+              <input type="text" id="mitra-perusahaan" name="company" ngModel class="form-control" maxlength="150"
+                autocomplete="organization" [placeholder]="t.form.perusahaanPh" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="mitra-pesan">{{ t.form.pesan }}</label>
+              <textarea id="mitra-pesan" name="message" ngModel class="form-control" required maxlength="1500"
+                [placeholder]="t.form.pesanPh"></textarea>
+            </div>
+
+            <!-- Jebakan bot: tak terlihat oleh manusia; bila terisi, kiriman diabaikan -->
+            <div class="form-hp" aria-hidden="true">
+              <label for="mitra-website">Website</label>
+              <input type="text" id="mitra-website" name="website" ngModel tabindex="-1" autocomplete="off" />
+            </div>
+
+            <button type="submit" class="btn btn-primary btn--full">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+              <span>{{ t.form.kirim }}</span>
+            </button>
+            <p class="form-status" role="status" aria-live="polite">{{ formTerkirim ? t.form.terkirim : '' }}</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
