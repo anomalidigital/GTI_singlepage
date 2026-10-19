@@ -1,0 +1,652 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Mulish:wght@800;900&family=Poppins:wght@400;500;600&display=swap');
+
+/* ==========================================================================
+   CSS Variables & Tokens
+   ========================================================================== */
+:root {
+  /* Colors - GTI Brand Guidelines (60·30·8·2 Rule) */
+  /* Navy & biru disamakan dengan Corporate Navy final #125798 (warna logo).
+     Kode lama guideline v01: #0F2B6B (Tirta Deep) dan #1E5AA8 (Wave Blue). */
+  --color-primary: #0B3760; /* Navy gelap, satu rona dengan #125798 */
+  --color-secondary: #125798; /* Corporate Navy */
+  --color-accent: #3B82C4; /* Sky Flow - Highlight & Accent */
+  --color-neutral-light: #F6F2EB; /* Paper (60%) */
+  --color-neutral: #64748B; /* Slate Gray */
+  --color-text: #13243A; /* Ink (rona navy) */
+  --color-white: #FFFFFF;
+  --color-border: #E2E8F0;
+  --color-paper-deep: #EFE8DC; /* Paper Deep */
+  --color-ink-soft: #1A2A44; /* Ink Soft */
+  --color-silver: #A8B2BD; /* Silver - Editorial Accent (2%) */
+
+  /* Typography */
+  --font-main: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Montserrat', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Shadow & Radius */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* Layout
+     Namanya --gti-section-padding (bukan --section-padding) karena
+     sitebuilder sudah memakai --section-padding untuk aturan global
+     "section { padding: ... }". */
+  --max-width: 1200px;
+  --gti-section-padding: 5rem 1rem;
+
+  /* Desain 2026 (audit konten & brand Ibu Anne): Corporate Navy final #125798,
+     putih/off-white untuk ruang kosong, Flow Blue untuk aksen; Muli Black
+     (di Google Fonts bernama Mulish) untuk judul, Poppins untuk teks. */
+  --gti-navy: #125798;      /* Corporate Navy */
+  --gti-navy-hover: #0E4477; /* hover tombol navy */
+  --gti-navy-deep: #0B3760; /* pita gelap, panel kontak */
+  --gti-navy-ink: #061F37;  /* footer */
+  --gti-sky: #9CC8EE;       /* aksen terang di latar navy */
+  --gti-flow: #3B82C4;      /* Flow Blue, aksen garis */
+  --gti-mist: #F1F6FB;      /* latar lembut */
+  --gti-line: #D6E2EE;      /* garis tipis */
+  --gti-ink: #13243A;       /* teks utama */
+  --gti-muted: #4E6074;     /* teks pendukung, kontras 6:1 di putih */
+  --font-gti-display: 'Mulish', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ==========================================================================
+   Penyesuaian Bootstrap & CSS bawaan sitebuilder
+   Sitebuilder selalu memuat Bootstrap 5. Bagian ini mengembalikan tampilan
+   ke desain GTI di titik-titik yang berbeda.
+   ========================================================================== */
+:root {
+  --bs-primary: #125798;
+  --bs-primary-rgb: 18, 87, 152; /* .text-primary Bootstrap (!important) = warna GTI */
+}
+
+section {
+  padding: 0; /* aturan global sitebuilder: section { padding: 20px 0 } */
+}
+
+ul, ol {
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+h1 { font-size: 2em; }
+h3 { font-size: 1.17em; }
+h4 { font-size: 1em; }
+h5 { font-size: 0.83em; }
+h6 { font-size: 0.67em; }
+
+hr {
+  opacity: 1;
+}
+
+main:focus {
+  outline: none;
+}
+
+/* Tombol & kolom isian: kembalikan ukuran bawaan browser seperti desain asli
+   (Bootstrap mengubahnya menjadi 16px / line-height 1.6). */
+button {
+  font-size: 0.8333rem;
+  line-height: normal;
+}
+
+.btn {
+  line-height: inherit;
+  text-align: inherit;
+}
+
+.form-control {
+  display: inline-block;
+  line-height: normal;
+  color: #000;
+}
+
+.form-control::placeholder {
+  color: #757575;
+}
+
+/* ==========================================================================
+   Reset & Base Styles
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px; /* Offset for fixed header */
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--color-text);
+  background-color: var(--color-white);
+  line-height: 1.6;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  line-height: 1.2;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+h3, h4, h5, h6 {
+  font-family: var(--font-main);
+  font-weight: 600;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: var(--color-neutral);
+}
+
+.section {
+  padding: var(--gti-section-padding);
+}
+
+.section-bg-light {
+  background-color: #E8F0F8;
+}
+
+/* Link "lewati ke konten" untuk pengguna keyboard/pembaca layar:
+   tersembunyi, muncul saat mendapat fokus (Tab pertama). */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 10000;
+  padding: 0.75rem 1.25rem;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* ==========================================================================
+   Typography Utilities
+   ========================================================================== */
+.text-center { text-align: center; }
+.text-primary { color: var(--color-primary); }
+.text-white { color: var(--color-white) !important; }
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  font-size: 1rem;
+  /* warna saat ditekan; tanpa ini Bootstrap memakai biru miliknya */
+  --bs-btn-active-bg: var(--gti-navy-hover);
+  --bs-btn-active-color: var(--color-white);
+  --bs-btn-active-border-color: transparent;
+}
+
+.btn-primary {
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+}
+
+.btn-primary:hover {
+  background-color: var(--gti-navy-hover);
+  color: var(--color-white);
+  transform: translateY(-2px);
+}
+
+.btn:focus-visible,
+.nav-link:focus-visible,
+.lang-btn:focus-visible,
+.lang-option:focus-visible,
+.mobile-toggle:focus-visible,
+.whatsapp-float:focus-visible,
+.footer a:focus-visible,
+.contact-detail-text a:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+  box-shadow: none;
+}
+
+/* ==========================================================================
+   Header & Navigation
+   ========================================================================== */
+.header {
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.logo-wrapper img {
+  height: 50px;
+  width: auto;
+}
+
+/* Nav Menu */
+.nav-menu {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-link {
+  font-weight: 500;
+  color: var(--color-text);
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-secondary);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--color-secondary);
+}
+
+/* Actions (Lang Switcher & Hamburger) */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Language Switcher */
+.lang-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 0.5rem 0.75rem;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--color-text);
+  transition: border-color 0.3s;
+}
+
+.lang-btn:hover {
+  border-color: var(--color-secondary);
+}
+
+.lang-btn i {
+  font-size: 1.1em;
+  color: currentColor;
+}
+
+.lang-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  margin-top: 0.5rem;
+  padding: 0;
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  min-width: 140px;
+  overflow: hidden;
+  z-index: 100;
+}
+
+.lang-menu.show {
+  display: block;
+}
+
+.lang-option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.95rem;
+  white-space: nowrap; /* "Bahasa Indonesia" tidak terpotong 2 baris */
+}
+
+.lang-option:hover {
+  background-color: var(--color-neutral-light);
+  color: var(--color-secondary);
+}
+
+/* Mobile Toggle */
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text);
+}
+
+.mobile-toggle i {
+  font-size: 1.5em;
+  color: currentColor;
+}
+
+/* Tombol "Contact Us" di navbar */
+.nav-menu .nav-cta {
+  padding: 0.55rem 1.15rem;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  background-color: var(--gti-navy);
+}
+
+.nav-menu .nav-cta:hover {
+  background-color: var(--gti-navy-deep);
+  transform: none;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.footer {
+  background-color: var(--gti-navy-ink);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 5rem 0 2rem;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr;
+  gap: 4rem;
+  margin-bottom: 4rem;
+}
+
+.footer-logo {
+  height: 80px;
+  width: auto;
+  margin-bottom: 1.5rem;
+}
+
+.footer-desc {
+  max-width: 400px;
+}
+
+/* Warna abu global (#64748B) di atas latar footer gelap kontrasnya hanya
+   3,6:1 (minimal 4,5:1). Disamakan dengan warna link footer. */
+.footer p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footer h4 {
+  color: var(--color-white);
+  margin-bottom: 1.5rem;
+  font-size: 1.125rem;
+}
+
+.footer-links li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: var(--color-accent);
+}
+
+.footer-contact-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.footer-contact-item--center {
+  align-items: center;
+}
+
+.footer-contact-item:last-child {
+  margin-bottom: 0;
+}
+
+.footer-contact-icon {
+  color: var(--color-white);
+}
+
+.footer-contact-icon--top {
+  margin-top: 5px;
+}
+
+.footer-contact-address {
+  line-height: 1.5;
+}
+
+.footer-company {
+  color: var(--color-white) !important;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin: -0.75rem 0 1rem;
+}
+
+.footer-contact a:hover {
+  color: var(--color-white);
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+}
+
+/* ==========================================================================
+   WhatsApp Floating Button
+   ========================================================================== */
+.whatsapp-float {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background-color: #25D366;
+  color: white;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-float i {
+  font-size: 35px;
+  display: block;
+}
+
+.whatsapp-float:hover {
+  color: white;
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* ==========================================================================
+   Animations
+   Kelas .fade-siap dipasang oleh Script (siapkanTampilan) hanya pada konten
+   yang belum terlihat, jadi tanpa JavaScript semua konten tetap tampil.
+   :where() menjaga spesifisitas tetap sama dengan aturan lama, sehingga
+   .delay-* dan efek hover kartu tetap berlaku seperti sebelumnya.
+   ========================================================================== */
+.fade-in:where(.fade-siap) {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .nav-menu { gap: 1.25rem; }
+  .nav-link { font-size: 0.95rem; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 3rem; }
+}
+
+@media (max-width: 768px) {
+  /* Menu menempel tepat di bawah header (tinggi 70px) */
+  .nav-menu {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 70px);
+    height: calc(100dvh - 70px);
+    background-color: var(--color-white);
+    flex-direction: column;
+    padding: 2rem;
+    transition: left 0.3s ease, visibility 0.3s;
+    align-items: flex-start;
+    visibility: hidden; /* menu tertutup tidak bisa di-Tab */
+    box-shadow: var(--shadow-md);
+  }
+
+  .nav-menu.active { left: 0; visibility: visible; }
+  .mobile-toggle { display: block; }
+  .nav-menu .nav-cta { margin-top: 0.5rem; padding: 0.75rem 1.5rem; font-size: 1rem; }
+
+  .footer-top { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+
+  .whatsapp-float {
+    width: 50px;
+    height: 50px;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .whatsapp-float i {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn { width: 100%; }
+}
+
+/* ==========================================================================
+   Reduced Motion
+   Pengguna yang mengaktifkan "kurangi animasi" di perangkatnya tidak
+   mendapat animasi geser/fade/scroll halus.
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  .fade-in:where(.fade-siap) {
+    opacity: 1;
+    transform: none;
+  }
+}

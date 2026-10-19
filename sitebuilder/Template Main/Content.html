@@ -1,0 +1,100 @@
+<a href="/#main" class="skip-link" (click)="keSection($event, 'main')">{{ tMain.langsungKeKonten }}</a>
+
+<!-- Header & Navigation -->
+<header class="header" (keydown.escape)="menuBuka = false">
+  <div class="container nav-container">
+    <a href="/" class="logo-wrapper" (click)="keSection($event, 'home')">
+      <img [src]="aset + 'gemilang-tirta-internusa-logo.webp'" alt="PT Gemilang Tirta Internusa" width="800"
+        height="205" />
+    </a>
+
+    <!-- Link ke section memakai href="/#..." + keSection(), bukan "#about" biasa:
+         sitebuilder memakai <base href="/public/">, jadi "#about" membuka /public/#about. -->
+    <nav class="nav-menu" id="nav-menu" [class.active]="menuBuka" [attr.aria-label]="tMain.navigasi">
+      <a *ngFor="let item of tMain.menu; trackBy: lacakIndex" [attr.href]="'/#' + item.id" class="nav-link"
+        [attr.data-section]="item.id" (click)="keSection($event, item.id)">{{ item.label }}</a>
+      <a href="/#contact" class="btn btn-primary nav-cta" (click)="keSection($event, 'contact')">{{
+        tMain.hubungiKamiTombol }}</a>
+    </nav>
+
+    <div class="nav-actions">
+      <!-- Pilihan bahasa (dropdown Bootstrap bawaan sitebuilder) -->
+      <div class="lang-dropdown dropdown">
+        <button type="button" class="lang-btn" data-bs-toggle="dropdown" data-bs-display="static"
+          aria-expanded="false" [attr.aria-label]="tMain.pilihBahasa">
+          <i class="fa-solid fa-globe" aria-hidden="true"></i>
+          <span>{{ language }}</span>
+        </button>
+        <div class="lang-menu dropdown-menu dropdown-menu-end">
+          <button type="button" class="lang-option" lang="id" (click)="gantiBahasa('ID')">Bahasa Indonesia</button>
+          <button type="button" class="lang-option" lang="en" (click)="gantiBahasa('EN')">English</button>
+        </div>
+      </div>
+
+      <button type="button" class="mobile-toggle" (click)="menuBuka = !menuBuka" [attr.aria-expanded]="menuBuka"
+        aria-controls="nav-menu" [attr.aria-label]="menuBuka ? tMain.tutupMenu : tMain.bukaMenu">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+[ROUTE]
+</main>
+
+<!-- Footer -->
+<footer class="footer" [attr.data-render]="idRender">
+  <div class="container">
+    <div class="footer-top fade-in">
+      <div class="footer-info">
+        <img [src]="aset + 'gemilang-tirta-internusa-logo-white.webp'" alt="PT Gemilang Tirta Internusa"
+          class="footer-logo" width="800" height="205" loading="lazy" />
+        <p class="footer-desc">{{ tMain.footerDesc }}</p>
+      </div>
+      <div class="footer-links">
+        <h4>{{ tMain.tautanCepat }}</h4>
+        <ul>
+          <li *ngFor="let item of tMain.footerMenu; trackBy: lacakIndex">
+            <a [attr.href]="'/#' + item.id" (click)="keSection($event, item.id)">{{ item.label }}</a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <!-- Kantor pusat, sama dengan blok kantor pusat di footer situs BMP -->
+        <h4>{{ kantorPusat.judul }}</h4>
+        <p class="footer-company">{{ kantorPusat.perusahaan }}</p>
+        <ul>
+          <li class="footer-contact-item">
+            <i class="fa-solid fa-location-dot footer-contact-icon footer-contact-icon--top" aria-hidden="true"></i>
+            <a [href]="kantorPusat.maps" target="_blank" rel="noopener noreferrer" class="footer-contact-address"
+              [innerHTML]="kantorPusat.alamat"></a>
+          </li>
+          <li class="footer-contact-item footer-contact-item--center">
+            <i class="fa-solid fa-phone footer-contact-icon" aria-hidden="true"></i>
+            <a [href]="kantorPusat.telepon.href">{{ kantorPusat.telepon.tampil }}</a>
+          </li>
+          <li class="footer-contact-item footer-contact-item--center">
+            <i class="fa-brands fa-whatsapp footer-contact-icon" aria-hidden="true"></i>
+            <a [href]="kantorPusat.telepon2.href" target="_blank" rel="noopener noreferrer">{{
+              kantorPusat.telepon2.tampil }}</a>
+          </li>
+          <li class="footer-contact-item footer-contact-item--center">
+            <i class="fa-solid fa-envelope footer-contact-icon" aria-hidden="true"></i>
+            <a [href]="kantorPusat.email.href">{{ kantorPusat.email.tampil }}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; {{ tahun }} PT Gemilang Tirta Internusa. {{ tMain.hakCipta }}</p>
+      <p>{{ tMain.slogan }}</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp Button -->
+<a [href]="kontak.whatsapp.href" class="whatsapp-float" target="_blank" rel="noopener noreferrer"
+  aria-label="Chat WhatsApp">
+  <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+</a>
