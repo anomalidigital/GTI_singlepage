@@ -1,0 +1,1647 @@
+/* Hasil gabungan Template Main/Style.css + Home/Home.css (sitebuilder/). Jangan diedit langsung. */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Mulish:wght@800;900&family=Poppins:wght@400;500;600&display=swap');
+
+/* ==========================================================================
+   CSS Variables & Tokens
+   ========================================================================== */
+:root {
+  /* Colors - GTI Brand Guidelines (60·30·8·2 Rule) */
+  /* Navy & biru disamakan dengan Corporate Navy final #125798 (warna logo).
+     Kode lama guideline v01: #0F2B6B (Tirta Deep) dan #1E5AA8 (Wave Blue). */
+  --color-primary: #0B3760; /* Navy gelap, satu rona dengan #125798 */
+  --color-secondary: #125798; /* Corporate Navy */
+  --color-accent: #3B82C4; /* Sky Flow - Highlight & Accent */
+  --color-neutral-light: #F6F2EB; /* Paper (60%) */
+  --color-neutral: #64748B; /* Slate Gray */
+  --color-text: #13243A; /* Ink (rona navy) */
+  --color-white: #FFFFFF;
+  --color-border: #E2E8F0;
+  --color-paper-deep: #EFE8DC; /* Paper Deep */
+  --color-ink-soft: #1A2A44; /* Ink Soft */
+  --color-silver: #A8B2BD; /* Silver - Editorial Accent (2%) */
+
+  /* Typography */
+  --font-main: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Montserrat', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Shadow & Radius */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* Layout
+     Namanya --gti-section-padding (bukan --section-padding) karena
+     sitebuilder sudah memakai --section-padding untuk aturan global
+     "section { padding: ... }". */
+  --max-width: 1200px;
+  --gti-section-padding: 5rem 1rem;
+
+  /* Desain 2026 (audit konten & brand Ibu Anne): Corporate Navy final #125798,
+     putih/off-white untuk ruang kosong, Flow Blue untuk aksen; Muli Black
+     (di Google Fonts bernama Mulish) untuk judul, Poppins untuk teks. */
+  --gti-navy: #125798;      /* Corporate Navy */
+  --gti-navy-hover: #0E4477; /* hover tombol navy */
+  --gti-navy-deep: #0B3760; /* pita gelap, panel kontak */
+  --gti-navy-ink: #061F37;  /* footer */
+  --gti-sky: #9CC8EE;       /* aksen terang di latar navy */
+  --gti-flow: #3B82C4;      /* Flow Blue, aksen garis */
+  --gti-mist: #F1F6FB;      /* latar lembut */
+  --gti-line: #D6E2EE;      /* garis tipis */
+  --gti-ink: #13243A;       /* teks utama */
+  --gti-muted: #4E6074;     /* teks pendukung, kontras 6:1 di putih */
+  --font-gti-display: 'Mulish', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ==========================================================================
+   Penyesuaian Bootstrap & CSS bawaan sitebuilder
+   Sitebuilder selalu memuat Bootstrap 5. Bagian ini mengembalikan tampilan
+   ke desain GTI di titik-titik yang berbeda.
+   ========================================================================== */
+:root {
+  --bs-primary: #125798;
+  --bs-primary-rgb: 18, 87, 152; /* .text-primary Bootstrap (!important) = warna GTI */
+}
+
+section {
+  padding: 0; /* aturan global sitebuilder: section { padding: 20px 0 } */
+}
+
+ul, ol {
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+h1 { font-size: 2em; }
+h3 { font-size: 1.17em; }
+h4 { font-size: 1em; }
+h5 { font-size: 0.83em; }
+h6 { font-size: 0.67em; }
+
+hr {
+  opacity: 1;
+}
+
+main:focus {
+  outline: none;
+}
+
+/* Tombol & kolom isian: kembalikan ukuran bawaan browser seperti desain asli
+   (Bootstrap mengubahnya menjadi 16px / line-height 1.6). */
+button {
+  font-size: 0.8333rem;
+  line-height: normal;
+}
+
+.btn {
+  line-height: inherit;
+  text-align: inherit;
+}
+
+.form-control {
+  display: inline-block;
+  line-height: normal;
+  color: #000;
+}
+
+.form-control::placeholder {
+  color: #757575;
+}
+
+/* ==========================================================================
+   Reset & Base Styles
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px; /* Offset for fixed header */
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--color-text);
+  background-color: var(--color-white);
+  line-height: 1.6;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  line-height: 1.2;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+h3, h4, h5, h6 {
+  font-family: var(--font-main);
+  font-weight: 600;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: var(--color-neutral);
+}
+
+.section {
+  padding: var(--gti-section-padding);
+}
+
+.section-bg-light {
+  background-color: #E8F0F8;
+}
+
+/* Link "lewati ke konten" untuk pengguna keyboard/pembaca layar:
+   tersembunyi, muncul saat mendapat fokus (Tab pertama). */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 10000;
+  padding: 0.75rem 1.25rem;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* ==========================================================================
+   Typography Utilities
+   ========================================================================== */
+.text-center { text-align: center; }
+.text-primary { color: var(--color-primary); }
+.text-white { color: var(--color-white) !important; }
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  font-size: 1rem;
+  /* warna saat ditekan; tanpa ini Bootstrap memakai biru miliknya */
+  --bs-btn-active-bg: var(--gti-navy-hover);
+  --bs-btn-active-color: var(--color-white);
+  --bs-btn-active-border-color: transparent;
+}
+
+.btn-primary {
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+}
+
+.btn-primary:hover {
+  background-color: var(--gti-navy-hover);
+  color: var(--color-white);
+  transform: translateY(-2px);
+}
+
+.btn:focus-visible,
+.nav-link:focus-visible,
+.lang-btn:focus-visible,
+.lang-option:focus-visible,
+.mobile-toggle:focus-visible,
+.whatsapp-float:focus-visible,
+.footer a:focus-visible,
+.contact-detail-text a:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+  box-shadow: none;
+}
+
+/* ==========================================================================
+   Header & Navigation
+   ========================================================================== */
+.header {
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.logo-wrapper img {
+  height: 50px;
+  width: auto;
+}
+
+/* Nav Menu */
+.nav-menu {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-link {
+  font-weight: 500;
+  color: var(--color-text);
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-secondary);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--color-secondary);
+}
+
+/* Actions (Lang Switcher & Hamburger) */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Language Switcher */
+.lang-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 0.5rem 0.75rem;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--color-text);
+  transition: border-color 0.3s;
+}
+
+.lang-btn:hover {
+  border-color: var(--color-secondary);
+}
+
+.lang-btn i {
+  font-size: 1.1em;
+  color: currentColor;
+}
+
+.lang-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  margin-top: 0.5rem;
+  padding: 0;
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  min-width: 140px;
+  overflow: hidden;
+  z-index: 100;
+}
+
+.lang-menu.show {
+  display: block;
+}
+
+.lang-option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.95rem;
+  white-space: nowrap; /* "Bahasa Indonesia" tidak terpotong 2 baris */
+}
+
+.lang-option:hover {
+  background-color: var(--color-neutral-light);
+  color: var(--color-secondary);
+}
+
+/* Mobile Toggle */
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text);
+}
+
+.mobile-toggle i {
+  font-size: 1.5em;
+  color: currentColor;
+}
+
+/* Tombol "Contact Us" di navbar */
+.nav-menu .nav-cta {
+  padding: 0.55rem 1.15rem;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  background-color: var(--gti-navy);
+}
+
+.nav-menu .nav-cta:hover {
+  background-color: var(--gti-navy-deep);
+  transform: none;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.footer {
+  background-color: var(--gti-navy-ink);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 5rem 0 2rem;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr;
+  gap: 4rem;
+  margin-bottom: 4rem;
+}
+
+.footer-logo {
+  height: 80px;
+  width: auto;
+  margin-bottom: 1.5rem;
+}
+
+.footer-desc {
+  max-width: 400px;
+}
+
+/* Warna abu global (#64748B) di atas latar footer gelap kontrasnya hanya
+   3,6:1 (minimal 4,5:1). Disamakan dengan warna link footer. */
+.footer p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footer h4 {
+  color: var(--color-white);
+  margin-bottom: 1.5rem;
+  font-size: 1.125rem;
+}
+
+.footer-links li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: var(--color-accent);
+}
+
+.footer-contact-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.footer-contact-item--center {
+  align-items: center;
+}
+
+.footer-contact-item:last-child {
+  margin-bottom: 0;
+}
+
+.footer-contact-icon {
+  color: var(--color-white);
+}
+
+.footer-contact-icon--top {
+  margin-top: 5px;
+}
+
+.footer-contact-address {
+  line-height: 1.5;
+}
+
+.footer-company {
+  color: var(--color-white) !important;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin: -0.75rem 0 1rem;
+}
+
+.footer-contact a:hover {
+  color: var(--color-white);
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+}
+
+/* ==========================================================================
+   WhatsApp Floating Button
+   ========================================================================== */
+.whatsapp-float {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background-color: #25D366;
+  color: white;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-float i {
+  font-size: 35px;
+  display: block;
+}
+
+.whatsapp-float:hover {
+  color: white;
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* ==========================================================================
+   Animations
+   Kelas .fade-siap dipasang oleh Script (siapkanTampilan) hanya pada konten
+   yang belum terlihat, jadi tanpa JavaScript semua konten tetap tampil.
+   :where() menjaga spesifisitas tetap sama dengan aturan lama, sehingga
+   .delay-* dan efek hover kartu tetap berlaku seperti sebelumnya.
+   ========================================================================== */
+.fade-in:where(.fade-siap) {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .nav-menu { gap: 1.25rem; }
+  .nav-link { font-size: 0.95rem; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 3rem; }
+}
+
+@media (max-width: 768px) {
+  /* Menu menempel tepat di bawah header (tinggi 70px) */
+  .nav-menu {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 70px);
+    height: calc(100dvh - 70px);
+    background-color: var(--color-white);
+    flex-direction: column;
+    padding: 2rem;
+    transition: left 0.3s ease, visibility 0.3s;
+    align-items: flex-start;
+    visibility: hidden; /* menu tertutup tidak bisa di-Tab */
+    box-shadow: var(--shadow-md);
+  }
+
+  .nav-menu.active { left: 0; visibility: visible; }
+  .mobile-toggle { display: block; }
+  .nav-menu .nav-cta { margin-top: 0.5rem; padding: 0.75rem 1.5rem; font-size: 1rem; }
+
+  .footer-top { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+
+  .whatsapp-float {
+    width: 50px;
+    height: 50px;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .whatsapp-float i {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn { width: 100%; }
+}
+
+/* ==========================================================================
+   Reduced Motion
+   Pengguna yang mengaktifkan "kurangi animasi" di perangkatnya tidak
+   mendapat animasi geser/fade/scroll halus.
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  .fade-in:where(.fade-siap) {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ==========================================================================
+   Home GTI - desain 2026
+   Token di Template Main/Style.css (--gti-navy #125798, --gti-flow, --gti-mist,
+   --font-gti-display = Mulish/Muli Black). Struktur dibangun dari kolom, garis
+   tipis, dan ukuran huruf - bukan kartu. Motif: siluet gerbang (arch).
+   Section form "Hubungi Kami" di bagian bawah file ini tidak diubah.
+   ========================================================================== */
+
+/* --- Dasar section baru ------------------------------------------------- */
+.gti-sec {
+  padding: clamp(4.5rem, 3rem + 5vw, 7.5rem) 1rem;
+}
+
+.gti-judul,
+.gti-hero__judul {
+  font-family: var(--font-gti-display);
+  font-weight: 900;
+  color: var(--gti-navy);
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.gti-judul {
+  font-size: clamp(2rem, 1.35rem + 2.1vw, 3rem);
+  line-height: 1.08;
+  margin: 0 0 1.25rem;
+}
+
+.gti-teks {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--gti-muted);
+  max-width: 62ch;
+}
+
+/* Nama section di atas judul (WHO WE ARE, WHY GTI, dst.) */
+.gti-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gti-navy);
+  margin: 0 0 1rem;
+}
+
+.gti-peran .gti-label,
+.gti-kemitraan .gti-label {
+  color: var(--gti-sky);
+}
+
+.gti-merek .gti-label {
+  margin-bottom: 0.6rem;
+}
+
+.gti-kepala {
+  max-width: 760px;
+}
+
+.gti-kepala .gti-teks {
+  margin-bottom: 0;
+}
+
+/* Kepala section dua sisi: judul kiri, pengantar kanan */
+.gti-kepala--sisi {
+  max-width: none;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1.5rem 4rem;
+  align-items: end;
+}
+
+.gti-kepala--sisi .gti-judul {
+  margin-bottom: 0;
+}
+
+/* --- Tombol ------------------------------------------------------------- */
+.gti-aksi {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.gti-btn {
+  padding: 0.85rem 1.6rem;
+  line-height: 1.4;
+}
+
+.gti-btn--putih {
+  background-color: var(--color-white);
+  color: var(--gti-navy);
+}
+
+.gti-btn--putih:hover {
+  background-color: #E4EEF8;
+  color: var(--gti-navy-deep);
+}
+
+.gti-btn--garis-putih {
+  background-color: transparent;
+  color: var(--color-white);
+  box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.75);
+}
+
+.gti-btn--garis-putih:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--color-white);
+}
+
+.gti-hero .gti-btn:focus-visible,
+.gti-kemitraan .gti-btn:focus-visible {
+  outline-color: var(--color-white);
+}
+
+/* --- Hero (latar navy, warna logo) ------------------------------------- */
+.gti-hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(3.5rem, 2rem + 4.5vw, 6.5rem) 1rem clamp(4.5rem, 2.5rem + 5vw, 7.5rem);
+  background: linear-gradient(118deg, var(--gti-navy-ink) 0%, var(--gti-navy-deep) 38%, var(--gti-navy) 100%);
+}
+
+/* lengkung gerbang besar yang samar di belakang foto */
+.gti-hero__lengkung {
+  position: absolute;
+  right: -120px;
+  bottom: 0;
+  width: 880px;
+  height: auto;
+  pointer-events: none;
+}
+
+.gti-hero__lengkung path {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.07);
+  stroke-width: 1.5;
+}
+
+.gti-hero__grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: clamp(2.5rem, 6vw, 6rem);
+  align-items: center;
+}
+
+.gti-hero .gti-hero__judul {
+  font-size: clamp(2.5rem, 1.5rem + 3.6vw, 4.6rem);
+  line-height: 1.03;
+  color: var(--color-white);
+  margin: 0;
+}
+
+.gti-hero__sub {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 52ch;
+  margin: 1.75rem 0 2.5rem;
+}
+
+/* Dua foto berbentuk gerbang berdiri di garis dasar yang sama: foto utama
+   (dengan garis gerbang kedua yang sedikit bergeser) dan foto pompa yang
+   lebih kecil di depannya, kanan bawah. */
+.gti-hero__gerbang {
+  position: relative;
+  margin: 0;
+}
+
+.gti-hero__gerbang::before {
+  content: '';
+  position: absolute;
+  top: -18px;
+  bottom: 18px;
+  left: 18px;
+  width: 80%;
+  border: 1.5px solid rgba(156, 200, 238, 0.55);
+  border-bottom: none;
+  border-radius: 999px 999px 0 0;
+  pointer-events: none;
+}
+
+.gti-hero__foto {
+  position: relative;
+  width: 80%;
+  aspect-ratio: 4 / 5;
+  border-radius: 999px 999px 0 0;
+  overflow: hidden;
+  background-color: var(--gti-navy-deep);
+}
+
+.gti-hero__foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 30%;
+}
+
+.gti-hero__sisip {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 40%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 999px 999px 0 0;
+  /* cincin sewarna latar hero: memisahkan dua foto tanpa garis putih */
+  box-shadow: 0 0 0 6px #0F4C86, -14px 10px 30px rgba(3, 18, 34, 0.35);
+}
+
+/* --- Merek global ------------------------------------------------------- */
+.gti-merek {
+  padding: 2.5rem 1rem;
+  border-top: 1px solid var(--gti-line);
+  border-bottom: 1px solid var(--gti-line);
+  background-color: var(--color-white);
+}
+
+.gti-merek__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 2.1fr);
+  gap: 1rem 3rem;
+  align-items: center;
+}
+
+.gti-merek__judul {
+  font-family: var(--font-gti-display);
+  font-weight: 800;
+  font-size: 1.3rem;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--gti-ink);
+  margin: 0;
+  text-wrap: balance;
+}
+
+.gti-merek__logo {
+  list-style: none;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.gti-merek__logo li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 88px;
+  padding: 0 1.5rem;
+  border-left: 1px solid var(--gti-line);
+}
+
+.gti-merek__logo img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 40px;
+}
+
+.gti-merek__catatan {
+  grid-column: 2;
+  margin: 0;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--gti-muted);
+}
+
+/* --- Tentang GTI -------------------------------------------------------- */
+.gti-tentang {
+  background-color: var(--gti-mist);
+}
+
+.gti-tentang__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2.5rem, 6vw, 6rem);
+  align-items: center;
+}
+
+/* foto dipotong ke bagian atas gedung (fasad gelombang) */
+.gti-tentang__foto {
+  margin: 0;
+  aspect-ratio: 1000 / 920;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.gti-tentang__foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 0;
+}
+
+.gti-poin {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem 2.5rem;
+  margin: 2.25rem 0 0;
+}
+
+.gti-poin__item {
+  border-top: 2px solid var(--gti-navy);
+  padding-top: 1rem;
+}
+
+.gti-poin dt {
+  font-family: var(--font-gti-display);
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: var(--gti-ink);
+  margin-bottom: 0.4rem;
+}
+
+.gti-poin dd {
+  margin: 0;
+  font-size: 0.975rem;
+  line-height: 1.6;
+  color: var(--gti-muted);
+}
+
+/* --- Peran GTI: foto selebar sisi kiri layar + empat peran -------------- */
+.gti-peran {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  background-color: var(--gti-navy-deep);
+}
+
+.gti-peran__foto {
+  position: relative;
+  margin: 0;
+  min-height: 100%;
+}
+
+.gti-peran__foto img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 40%;
+}
+
+/* sisi kanan rata dengan tepi container (max 1200px); pakai vw karena
+   persen di sini dihitung dari lebar kolom, bukan lebar layar */
+.gti-peran__isi {
+  padding: clamp(4.5rem, 3rem + 5vw, 7.5rem) max(2.5rem, calc((100vw - 1200px) / 2 + 1.5rem)) clamp(4.5rem, 3rem + 5vw, 7.5rem) clamp(2.5rem, 1rem + 4vw, 5rem);
+}
+
+.gti-peran .gti-judul {
+  color: var(--color-white);
+}
+
+.gti-peran .gti-teks {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 0;
+}
+
+.gti-peran__daftar {
+  list-style: none;
+  margin: 3rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 2.5rem;
+}
+
+.gti-peran__item {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  column-gap: 1.1rem;
+  align-content: start;
+  padding: 1.75rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.gti-peran__ikon {
+  grid-row: span 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: rgba(156, 200, 238, 0.12);
+  color: var(--gti-sky);
+  font-size: 1.1rem;
+}
+
+.gti-peran__item h3 {
+  font-family: var(--font-gti-display);
+  font-weight: 800;
+  font-size: 1.25rem;
+  line-height: 1.25;
+  color: var(--color-white);
+  margin: 0.7rem 0 0.6rem;
+}
+
+.gti-peran__item p {
+  margin: 0;
+  font-size: 0.975rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.76);
+}
+
+/* --- Ekosistem: diagram alur dengan simpul sejajar ---------------------
+   Empat simpul bulat di satu garis sumbu, dihubungkan garis + panah.
+   PT GTI = simpul navy berlogo dengan cincin, teks semua rata tengah. */
+.gti-eko {
+  background-color: var(--color-white);
+}
+
+.gti-alur {
+  --simpul: 104px;   /* diameter simpul */
+  --celah: 1.5rem;   /* jarak antar kolom */
+  --jarak-garis: 22px;
+  list-style: none;
+  margin: 4rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: var(--celah);
+  text-align: center;
+}
+
+.gti-alur__tahap {
+  position: relative;
+}
+
+.gti-alur__simpul {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--simpul);
+  height: var(--simpul);
+  margin: 0 auto 1.75rem;
+  border-radius: 50%;
+  background-color: var(--color-white);
+  box-shadow: inset 0 0 0 1.5px var(--gti-line);
+  color: var(--gti-navy);
+  font-size: 1.75rem;
+}
+
+.gti-alur__simpul img {
+  width: 50%;
+  height: auto;
+  filter: brightness(0) invert(1); /* logo biru jadi putih di simpul navy */
+}
+
+/* garis + panah dari simpul ini ke simpul berikutnya */
+.gti-alur__panah {
+  position: absolute;
+  top: calc(var(--simpul) / 2 - 1px);
+  left: calc(50% + var(--simpul) / 2 + var(--jarak-garis));
+  width: calc(100% + var(--celah) - var(--simpul) - 2 * var(--jarak-garis));
+  height: 2px;
+  background: linear-gradient(90deg, var(--gti-line), var(--gti-flow));
+}
+
+.gti-alur__panah i {
+  position: absolute;
+  top: 50%;
+  right: -4px;
+  transform: translateY(-50%);
+  color: var(--gti-flow);
+  font-size: 0.8rem;
+}
+
+.gti-alur__tahap:last-child .gti-alur__panah {
+  display: none;
+}
+
+.gti-alur__peran {
+  display: block;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--gti-muted);
+  margin-bottom: 0.35rem;
+}
+
+/* judul selalu setinggi dua baris supaya daftar di keempat tahap sejajar */
+.gti-alur__judul {
+  font-family: var(--font-gti-display);
+  font-weight: 800;
+  font-size: 1.2rem;
+  line-height: 1.25;
+  min-height: 2.5em;
+  color: var(--gti-ink);
+  margin: 0 0 1rem;
+}
+
+.gti-alur__butir {
+  list-style: none;
+  max-width: 210px;
+  margin: 0 auto;
+  padding: 0.85rem 0 0;
+  border-top: 1px solid var(--gti-line);
+}
+
+.gti-alur__butir li {
+  padding: 0.3rem 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--gti-muted);
+}
+
+/* Simpul PT GTI */
+.gti-alur__tahap--gerbang .gti-alur__simpul {
+  background-color: var(--gti-navy);
+  box-shadow: 0 0 0 8px rgba(18, 87, 152, 0.12), 0 0 0 16px rgba(18, 87, 152, 0.05);
+}
+
+.gti-alur__tahap--gerbang .gti-alur__peran {
+  font-weight: 600;
+  color: var(--gti-navy);
+}
+
+.gti-alur__tahap--gerbang .gti-alur__judul {
+  color: var(--gti-navy);
+}
+
+.gti-alur__tahap--gerbang .gti-alur__butir {
+  border-top: 2px solid var(--gti-navy);
+}
+
+.gti-alur__tahap--gerbang .gti-alur__butir li {
+  color: var(--gti-ink);
+}
+
+/* --- Dari merek global ke pasar lokal ----------------------------------- */
+.gti-pasar {
+  background-color: var(--gti-mist);
+}
+
+.gti-pasar__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+  margin-top: 3.5rem;
+  align-items: start;
+}
+
+.gti-pasar__item {
+  margin: 0;
+}
+
+.gti-pasar__item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.gti-pasar__item figcaption {
+  padding-top: 1.25rem;
+}
+
+.gti-pasar__item h3 {
+  font-family: var(--font-gti-display);
+  font-weight: 800;
+  font-size: 1.2rem;
+  line-height: 1.3;
+  color: var(--gti-ink);
+  margin-bottom: 0.5rem;
+}
+
+.gti-pasar__item p {
+  margin: 0;
+  font-size: 0.975rem;
+  line-height: 1.65;
+  color: var(--gti-muted);
+}
+
+.gti-sektor {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 0.5rem;
+  margin: 3.5rem 0 0;
+  padding: 1.25rem 0 0;
+  border-top: 1px solid var(--gti-line);
+}
+
+.gti-sektor li {
+  padding: 0 1.25rem;
+  border-left: 1px solid var(--gti-line);
+  font-weight: 500;
+  color: var(--gti-ink);
+}
+
+.gti-sektor li:first-child {
+  padding-left: 0;
+  border-left: none;
+}
+
+/* --- Mengapa GTI -------------------------------------------------------- */
+.gti-mengapa {
+  background-color: var(--color-white);
+}
+
+.gti-mengapa__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(2.5rem, 6vw, 6rem);
+  align-items: start;
+}
+
+/* kolom pertama lebih lebar: "Berpengalaman" tidak terpotong di tengah kata */
+.gti-fakta {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.8fr) minmax(0, 1fr);
+  gap: 1.5rem;
+  margin: 2.5rem 0 0;
+}
+
+.gti-fakta > div {
+  border-top: 2px solid var(--gti-navy);
+  padding-top: 1rem;
+}
+
+.gti-fakta dt {
+  font-family: var(--font-gti-display);
+  font-weight: 900;
+  font-size: clamp(1.25rem, 1rem + 0.6vw, 1.5rem);
+  line-height: 1.15;
+  color: var(--gti-navy);
+  margin-bottom: 0.4rem;
+  overflow-wrap: break-word;
+}
+
+.gti-fakta dd {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--gti-muted);
+}
+
+.gti-alasan {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid var(--gti-line);
+}
+
+.gti-alasan li {
+  border-top: 1px solid var(--gti-line);
+  padding: 1.5rem 0;
+}
+
+.gti-alasan h3 {
+  font-family: var(--font-gti-display);
+  font-weight: 800;
+  font-size: 1.2rem;
+  line-height: 1.3;
+  color: var(--gti-ink);
+  margin-bottom: 0.5rem;
+}
+
+.gti-alasan p {
+  margin: 0;
+  font-size: 0.975rem;
+  line-height: 1.65;
+  color: var(--gti-muted);
+}
+
+/* --- Visi & nilai ------------------------------------------------------- */
+.gti-visi {
+  background-color: var(--color-white);
+  padding-top: 0;
+}
+
+.gti-visi__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: clamp(2.5rem, 6vw, 6rem);
+  padding-top: clamp(3.5rem, 2.5rem + 3vw, 5.5rem);
+  border-top: 1px solid var(--gti-line);
+}
+
+.gti-visi__kutip {
+  margin: 0;
+}
+
+.gti-visi__kutip p {
+  font-family: var(--font-gti-display);
+  font-weight: 900;
+  font-size: clamp(1.75rem, 1.2rem + 1.9vw, 2.65rem);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--gti-navy);
+  margin: 0;
+  text-wrap: balance;
+}
+
+.gti-visi__kutip p::before {
+  content: '\201C';
+}
+
+.gti-visi__kutip p::after {
+  content: '\201D';
+}
+
+.gti-nilai {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem 2rem;
+  margin: 0;
+}
+
+.gti-nilai > div {
+  border-top: 1px solid var(--gti-line);
+  padding-top: 1rem;
+}
+
+.gti-nilai dt {
+  font-weight: 600;
+  color: var(--gti-ink);
+  margin-bottom: 0.25rem;
+}
+
+.gti-nilai dd {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--gti-muted);
+}
+
+/* --- Ajakan bermitra ---------------------------------------------------- */
+.gti-kemitraan {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(118deg, var(--gti-navy-deep) 0%, var(--gti-navy) 100%);
+}
+
+.gti-kemitraan__gerbang {
+  position: absolute;
+  right: -150px;
+  bottom: 0;
+  width: 440px;
+  height: auto;
+  pointer-events: none;
+}
+
+.gti-kemitraan__gerbang path {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.16);
+  stroke-width: 1.5;
+}
+
+.gti-kemitraan__grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+  gap: 2rem 4rem;
+  align-items: end;
+}
+
+.gti-kemitraan .gti-judul {
+  color: var(--color-white);
+}
+
+.gti-kemitraan .gti-teks {
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 0;
+}
+
+.gti-kemitraan__aksi {
+  flex-direction: column;
+  align-items: stretch;
+  justify-self: end;
+  width: 100%;
+  max-width: 280px;
+}
+
+/* --- Responsif ---------------------------------------------------------- */
+@media (max-width: 1180px) {
+  .gti-peran__daftar { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 1024px) {
+  .gti-merek__grid { grid-template-columns: 1fr; }
+  .gti-merek__catatan { grid-column: auto; }
+  .gti-merek__logo li:first-child { border-left: none; padding-left: 0; }
+  .gti-mengapa__grid,
+  .gti-visi__grid,
+  .gti-kemitraan__grid { grid-template-columns: 1fr; }
+  .gti-kemitraan__aksi { justify-self: start; }
+  .gti-alur { --simpul: 88px; --celah: 1rem; --jarak-garis: 16px; }
+  .gti-alur__simpul { font-size: 1.5rem; }
+  .gti-alur__judul { font-size: 1.1rem; }
+}
+
+/* Alur tersusun ke bawah di layar sempit: simpul di kiri, garis turun */
+@media (max-width: 860px) {
+  .gti-alur {
+    --simpul: 64px;
+    grid-template-columns: 1fr;
+    margin-top: 3rem;
+    text-align: left;
+  }
+  .gti-alur__tahap {
+    display: grid;
+    grid-template-columns: var(--simpul) minmax(0, 1fr);
+    column-gap: 1.25rem;
+    padding-bottom: 2.5rem;
+  }
+  .gti-alur__tahap:last-child { padding-bottom: 0; }
+  .gti-alur__simpul { margin: 0; font-size: 1.25rem; }
+  .gti-alur__tahap--gerbang .gti-alur__simpul {
+    box-shadow: 0 0 0 6px rgba(18, 87, 152, 0.12), 0 0 0 12px rgba(18, 87, 152, 0.05);
+  }
+  .gti-alur__teks { padding-top: 0.4rem; }
+  .gti-alur__judul { min-height: 0; margin-bottom: 0.75rem; }
+  .gti-alur__butir { max-width: none; margin: 0; }
+  .gti-alur__panah {
+    top: calc(var(--simpul) + 14px);
+    bottom: 14px;
+    left: calc(var(--simpul) / 2 - 1px);
+    width: 2px;
+    height: auto;
+    background: linear-gradient(180deg, var(--gti-line), var(--gti-flow));
+  }
+  .gti-alur__panah i {
+    top: auto;
+    right: auto;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%) rotate(90deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .gti-hero__grid,
+  .gti-tentang__grid,
+  .gti-kepala--sisi { grid-template-columns: 1fr; }
+  .gti-hero__gerbang { max-width: 440px; }
+  .gti-hero__lengkung { width: 560px; right: -200px; }
+  .gti-peran { grid-template-columns: 1fr; }
+  .gti-peran__foto { aspect-ratio: 4 / 3; }
+  .gti-peran__isi { padding: 4rem 2.5rem 4.5rem; }
+  .gti-poin,
+  .gti-pasar__grid,
+  .gti-nilai { grid-template-columns: 1fr; }
+  .gti-merek__logo { grid-template-columns: 1fr; }
+  .gti-merek__logo li {
+    height: 72px;
+    padding: 0;
+    border-left: none;
+    border-top: 1px solid var(--gti-line);
+    justify-content: flex-start;
+  }
+  .gti-merek__logo img { max-height: 34px; }
+  .gti-fakta { grid-template-columns: 1fr; }
+  .gti-kemitraan__gerbang { width: 300px; right: -90px; }
+  .gti-sektor {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem 1.5rem;
+  }
+  .gti-sektor li,
+  .gti-sektor li:first-child { padding: 0; border-left: none; }
+}
+
+@media (max-width: 480px) {
+  .gti-btn { width: 100%; }
+  .gti-peran__isi { padding: 3.5rem 1.5rem 4rem; }
+}
+
+/* ==========================================================================
+   Hubungi Kami - section form (TIDAK DIUBAH; aturan sama dengan versi lama)
+   ========================================================================== */
+.contact-wrapper {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  display: flex;
+}
+
+.contact-info-panel {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: 3rem;
+  width: 40%;
+}
+
+.contact-info-panel h3, .contact-info-panel p {
+  color: var(--color-white);
+}
+
+.contact-detail {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.contact-detail-icon {
+  color: var(--color-accent);
+}
+
+.contact-form-panel {
+  padding: 3rem;
+  width: 60%;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--color-text);
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 0 3px rgba(18, 87, 152, 0.15);
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 120px;
+}
+
+@media (max-width: 1024px) {
+  .contact-wrapper { flex-direction: column; }
+  .contact-info-panel, .contact-form-panel { width: 100%; padding: 2rem; }
+}
+
+.contact-detail-title {
+  margin-bottom: 0.25rem;
+  color: var(--color-white);
+}
+
+.contact-detail-text {
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 0;
+  overflow-wrap: anywhere; /* alamat email panjang tidak keluar panel di HP */
+}
+
+.contact-detail-text a:hover {
+  color: var(--color-white);
+  text-decoration: underline;
+}
+
+.contact-form-title {
+  margin-bottom: 0.5rem;
+}
+
+.contact-form-desc {
+  margin-bottom: 2rem;
+}
+
+/* Jebakan bot & pesan status */
+.form-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.form-status {
+  margin: 1rem 0 0;
+  font-size: 0.9rem;
+  color: var(--color-secondary);
+}
+
+.form-status:empty {
+  display: none;
+}
+
+.btn--full {
+  width: 100%;
+  white-space: nowrap; /* "Kirim via WhatsApp" tetap satu baris di HP */
+}
