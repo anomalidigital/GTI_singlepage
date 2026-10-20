@@ -502,13 +502,6 @@ p {
   line-height: 1.5;
 }
 
-.footer-company {
-  color: var(--color-white) !important;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  margin: -0.75rem 0 1rem;
-}
-
 .footer-contact a:hover {
   color: var(--color-white);
   text-decoration: underline;

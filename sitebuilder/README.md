@@ -64,7 +64,7 @@ Jika melakukan pembaruan di CMS, gunakan panduan mapping berikut:
 3. **Form Kemitraan (WhatsApp + CMS Logging)**:
    - `FORM_MITRA_ID = "1791340566655HHLCWYS"`: Form akan otomatis membuka WhatsApp dengan format pesan rapi, dan menyimpan data pengirim ke database CMS.
    - Dilengkapi **Honeypot Anti-Bot** (`name="website"`).
-4. **Footer – Hubungi Kami**: memakai data kantor pusat BMP (`this.kantorPusat` di `Script.js`), sama seperti footer bentengmasperkasa.com.
+4. **Footer – Hubungi Kami**: alamat & telepon kantor pusat (sama dengan kantor pusat BMP) tanpa nama PT BMP; email `cs@gemilangtirtainternusa.com` (`this.kantorPusat` di `Script.js`). Panel kontak di form juga memakai email ini.
 
 ---
 

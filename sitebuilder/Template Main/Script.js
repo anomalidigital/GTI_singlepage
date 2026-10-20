@@ -63,19 +63,18 @@ this.kontak = {
   alamat: "Jl. Danau Indah Raya Blok C-3/10<br>Sunter, Jakarta Utara 14360<br>DKI Jakarta, Indonesia",
   telepon: { tampil: "+62 (21) 6583 6677", href: "tel:+622165836677" },
   whatsapp: { tampil: "+62 877 6583 6677", href: "https://wa.me/6287765836677" },
-  email: { tampil: "info@gemilangtirta.com", href: "mailto:info@gemilangtirta.com" },
+  email: { tampil: "cs@gemilangtirtainternusa.com", href: "mailto:cs@gemilangtirtainternusa.com" },
 };
 
-// Kantor pusat untuk kolom kontak di footer: sama persis dengan data kantor
-// pusat di situs BMP (contact.office di Script Template Main BMP).
+// Kantor pusat untuk kolom kontak di footer: alamat & telepon sama dengan
+// kantor pusat di situs BMP, tanpa nama PT BMP; email memakai domain GTI.
 this.kantorPusat = {
   judul: "Headquarter (Main Office & Service Center)",
-  perusahaan: "PT BENTENG MAS PERKASA",
   alamat: "Jl. Danau Indah Raya Blok C-3/10<br>Sunter, Jakarta Utara 14360, Indonesia",
   maps: "https://maps.app.goo.gl/E2p3jsMSiTFg7r5k8",
   telepon: { tampil: "+62 (21) 6583 6677", href: "tel:+622165836677" },
   telepon2: { tampil: "+62 877 6583 6677", href: "https://wa.me/6287765836677" },
-  email: { tampil: "cs@bentengmasperkasa.com", href: "mailto:cs@bentengmasperkasa.com" },
+  email: { tampil: "cs@gemilangtirtainternusa.com", href: "mailto:cs@gemilangtirtainternusa.com" },
 };
 
 this.tahun = new Date().getFullYear();

@@ -503,13 +503,6 @@ p {
   line-height: 1.5;
 }
 
-.footer-company {
-  color: var(--color-white) !important;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  margin: -0.75rem 0 1rem;
-}
-
 .footer-contact a:hover {
   color: var(--color-white);
   text-decoration: underline;
@@ -813,34 +806,22 @@ p {
   margin: 1.75rem 0 2.5rem;
 }
 
-/* Dua foto berbentuk gerbang berdiri di garis dasar yang sama: foto utama
-   (dengan garis gerbang kedua yang sedikit bergeser) dan foto pompa yang
-   lebih kecil di depannya, kanan bawah. */
+/* Dua foto kotak bersudut membulat seperti contoh desain: foto utama dan
+   foto pompa yang lebih kecil menumpuk di kanan bawah. Pemisahnya cincin
+   sewarna latar hero, tanpa garis putih. */
 .gti-hero__gerbang {
   position: relative;
-  margin: 0;
-}
-
-.gti-hero__gerbang::before {
-  content: '';
-  position: absolute;
-  top: -18px;
-  bottom: 18px;
-  left: 18px;
-  width: 80%;
-  border: 1.5px solid rgba(156, 200, 238, 0.55);
-  border-bottom: none;
-  border-radius: 999px 999px 0 0;
-  pointer-events: none;
+  margin: 0 0 28px;
 }
 
 .gti-hero__foto {
   position: relative;
-  width: 80%;
+  width: 84%;
   aspect-ratio: 4 / 5;
-  border-radius: 999px 999px 0 0;
+  border-radius: 18px;
   overflow: hidden;
   background-color: var(--gti-navy-deep);
+  box-shadow: 0 24px 48px rgba(3, 18, 34, 0.35);
 }
 
 .gti-hero__foto img {
@@ -853,13 +834,12 @@ p {
 .gti-hero__sisip {
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: -28px;
   width: 40%;
   height: auto;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
-  border-radius: 999px 999px 0 0;
-  /* cincin sewarna latar hero: memisahkan dua foto tanpa garis putih */
+  border-radius: 14px;
   box-shadow: 0 0 0 6px #0F4C86, -14px 10px 30px rgba(3, 18, 34, 0.35);
 }
 
@@ -1229,14 +1209,37 @@ p {
   color: var(--gti-muted);
 }
 
+/* Sektor: judul + pengantar singkat, lalu daftar sektor */
+.gti-sektor-blok {
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--gti-line);
+}
+
+.gti-sektor-blok__judul {
+  font-family: var(--font-gti-display);
+  font-weight: 800;
+  font-size: 1.2rem;
+  line-height: 1.3;
+  color: var(--gti-ink);
+  margin: 0 0 0.5rem;
+}
+
+.gti-sektor-blok__teks {
+  max-width: 62ch;
+  margin: 0;
+  font-size: 0.975rem;
+  line-height: 1.65;
+  color: var(--gti-muted);
+}
+
 .gti-sektor {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
   row-gap: 0.5rem;
-  margin: 3.5rem 0 0;
-  padding: 1.25rem 0 0;
-  border-top: 1px solid var(--gti-line);
+  margin: 1.5rem 0 0;
+  padding: 0;
 }
 
 .gti-sektor li {

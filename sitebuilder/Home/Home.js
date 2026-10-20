@@ -21,7 +21,7 @@ this.teksHalaman = {
   heroSisipAlt: ["Pompa teknologi air", "Water technology pump"],
 
   // Merek global
-  merekLabel: ["Portofolio Kami", "Our Portfolio"],
+  merekLabel: ["Prinsipal Kami", "Our Principals"],
   merekJudul: ["Merek Global & Kemitraan Strategis", "Global Brands & Strategic Partnerships"],
   merekCatatan: [
     "Cakupan kemitraan dapat berbeda untuk setiap merek. GTI mengelola setiap hubungan sesuai kerangka lisensi dan merek yang berlaku.",
@@ -87,6 +87,13 @@ this.teksHalaman = {
     { judul: ["Pengenalan Produk & Teknologi", "Product & Technology Introduction"], teks: ["Menciptakan konteks yang tepat bagi merek, teknologi, dan aplikasinya.", "Creating the right context for brands, technologies, and applications."], foto: "gti-workshop-bench.webp", alt: ["Presentasi peluncuran produk Grundfos", "Grundfos product launch presentation"] },
     { judul: ["Transfer Pengetahuan", "Knowledge Transfer"], teks: ["Mendukung prinsipal dalam berbagi pengetahuan produk dengan para pemangku kepentingan pasar lokal.", "Supporting principals in sharing product knowledge with local market stakeholders."], foto: "gti-knowledge-transfer.webp", alt: ["Demonstrasi produk pompa kepada mitra", "Pump product demonstration for partners"] },
     { judul: ["Keterlibatan Pasar & Mitra", "Market & Partner Engagement"], teks: ["Membangun hubungan dengan distributor, konsultan, kontraktor, dan profesional industri.", "Building relationships across distributors, consultants, contractors, and industry professionals."], foto: "gti-market-engagement.webp", alt: ["Peserta seminar mitra dan profesional industri", "Partner and industry professional seminar attendees"] },
+  ],
+  // Pengantar sektor: diringkas dari naskah UI writing GTI (Mauli, _Editorial)
+  // "...increasing demand for advanced water technologies across sectors..."
+  sektorJudul: ["Sektor yang Kami Layani", "Sectors We Serve"],
+  sektorTeks: [
+    "Teknologi air global untuk proyek di berbagai sektor di Indonesia.",
+    "Global water technologies for projects across Indonesia.",
   ],
   sektor: [["Residensial", "Residential"], ["Komersial", "Commercial"], ["Perhotelan", "Hospitality"], ["Infrastruktur & Industri", "Infrastructure & Industry"]],
 

@@ -136,9 +136,13 @@
         </figcaption>
       </figure>
     </div>
-    <ul class="gti-sektor">
-      <li *ngFor="let sektor of t.sektor; trackBy: lacakIndex">{{ sektor }}</li>
-    </ul>
+    <div class="gti-sektor-blok">
+      <h3 class="gti-sektor-blok__judul">{{ t.sektorJudul }}</h3>
+      <p class="gti-sektor-blok__teks">{{ t.sektorTeks }}</p>
+      <ul class="gti-sektor">
+        <li *ngFor="let sektor of t.sektor; trackBy: lacakIndex">{{ sektor }}</li>
+      </ul>
+    </div>
   </div>
 </section>
 
